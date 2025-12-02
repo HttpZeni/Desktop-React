@@ -1,73 +1,35 @@
-# React + TypeScript + Vite
+# Desktop Interface Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a small personal project where I'm experimenting with a desktop-style UI inside the browser. The goal is to recreate the feeling of a lightweight operating system: clickable icons, pop-up windows, customizable backgrounds and a few simple tools.
 
-Currently, two official plugins are available:
+## Current Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Desktop icons that open their own windows  
+- A basic window system with a close button  
+- Background switching via a dropdown menu  
+- The option to add custom background images through a URL  
+- LocalStorage support so your backgrounds stay saved  
 
-## React Compiler
+The project is built with React, TypeScript and Tailwind. Most components like `DesktopIcon`, `Button`, and `Dropdown` are kept small and reusable so I can extend the whole thing more easily later.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Plans and Ideas
 
-## Expanding the ESLint configuration
+- A taskbar with minimize/maximize window behavior  
+- Draggable desktop icons with saved positions  
+- Right-click context menus  
+- More “apps” inside windows (notes, image viewer, settings, etc.)  
+- Folder-like structures or nested icons  
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Why I'm Building This
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Mainly for fun and to challenge myself. I wanted a sandbox where I can try out UI ideas and play around with state management without worrying too much about strict architecture. It turned into a surprisingly good exercise for organizing components and experimenting with different patterns.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Running the Project
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Clone the repo  
+2. Install dependencies  
+3. Start the dev server
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+```sh
+npm install
+npm run dev
