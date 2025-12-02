@@ -1,34 +1,35 @@
 # Desktop Interface Project
 
-This is a small personal project where I'm experimenting with a desktop-style UI inside the browser. The goal is to recreate the feeling of a lightweight operating system: clickable icons, pop-up windows, customizable backgrounds and a few simple tools.
+This project started as a simple way for me to store and open personal mini-projects inside a desktop-style UI. Instead of a long list of folders or random files, I wanted something visual where each project sits on the “desktop” as its own icon. Clicking an icon opens a small window, making it feel a bit like a tiny operating system for my own work.
 
 ## Current Features
 
 - Desktop icons that open their own windows  
-- A basic window system with a close button  
-- Background switching via a dropdown menu  
-- The option to add custom background images through a URL  
-- LocalStorage support so your backgrounds stay saved  
+- A lightweight window system with a close button  
+- A background selector with support for adding your own images  
+- LocalStorage saving for custom backgrounds  
+- Reusable UI components (icons, buttons, dropdowns)
 
-The project is built with React, TypeScript and Tailwind. Most components like `DesktopIcon`, `Button`, and `Dropdown` are kept small and reusable so I can extend the whole thing more easily later.
+The project is built with React, TypeScript and Tailwind. The components are intentionally small so I can extend everything easily as the project grows.
 
-## Plans and Ideas
+## Future Plans
 
-- A taskbar with minimize/maximize window behavior  
-- Draggable desktop icons with saved positions  
-- Right-click context menus  
-- More “apps” inside windows (notes, image viewer, settings, etc.)  
-- Folder-like structures or nested icons  
+I’m keeping the roadmap simple and practical:
+
+- Drag and drop for desktop icons  
+- Saving icon positions so the layout stays consistent  
+- Small quality-of-life improvements (better window behavior, cleaner animations)  
+- Possibly a basic “folder” system for grouping projects
 
 ## Why I'm Building This
 
-Mainly for fun and to challenge myself. I wanted a sandbox where I can try out UI ideas and play around with state management without worrying too much about strict architecture. It turned into a surprisingly good exercise for organizing components and experimenting with different patterns.
+I wanted a place where I can quickly drop in little personal projects and access them visually without digging through directories. Building it myself also lets me experiment with UI ideas and keep everything flexible.
 
 ## Running the Project
 
 1. Clone the repo  
 2. Install dependencies  
-3. Start the dev server
+3. Start the dev server:
 
 ```sh
 npm install
