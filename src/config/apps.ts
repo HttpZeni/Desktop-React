@@ -7,6 +7,7 @@ export type AppComponentProps = {
     open: any
     setOpen?: any
     activeBg?: boolean
+    isDragging?: boolean;
 }
 
 export const appArray: AppComponentProps[] = [

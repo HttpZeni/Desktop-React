@@ -36,7 +36,7 @@ function DesktopIcon({ title = "Title", img = "src/assets/icon/test-icon.jpg", w
         timeoutRef.current = window.setTimeout(() => {
             setIsClicked(false);
             return 0;
-        }, 1000);
+        }, 10000);
 
         return next;
         });
