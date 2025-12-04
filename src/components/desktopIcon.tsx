@@ -1,28 +1,22 @@
 import { useEffect, useRef, useState } from "react";
+import type { AppComponentProps } from "../config/apps";
 
-type ComponentProps = {
-    title?: string
-    img?: string
-    width?: number
-    height?: number
-    open: any
-    setOpen: any
-}
-
-function DesktopIcon({ title = "Title", img = "src/assets/icon/test-icon.jpg", width = 100, height = 100, open = "", setOpen }: ComponentProps) {
+function DesktopIcon({ title = "Title", img = "src/assets/icon/test-icon.jpg", width = 100, height = 100, open = "", setOpen, activeBg=false}: AppComponentProps) {
     const fontSize = Math.max(10, width * 0.15)
     const paddingTopBot = Math.max(5, height*0.65);
     const paddingLeftRight = Math.max(5, width*0.075);
+    const isBgActive = (activeBg);
 
     const [countClicks, setCountClicks] = useState(0);
     const [isClicked, setIsClicked] = useState<boolean>(false);
     const timeoutRef = useRef<number | null>(null);
 
+
     useEffect(() => {
         return () => {
-        if (timeoutRef.current) {
-            clearTimeout(timeoutRef.current);
-        }
+            if (timeoutRef.current) {
+                clearTimeout(timeoutRef.current);
+            }
         };
     }, []);
 
@@ -35,13 +29,13 @@ function DesktopIcon({ title = "Title", img = "src/assets/icon/test-icon.jpg", w
 
         if (next >= 2) {
             setIsClicked(true);
+            setOpen(open);
             return 0;
         }
 
         timeoutRef.current = window.setTimeout(() => {
             setIsClicked(false);
-            setCountClicks(0);
-            setOpen(open);
+            return 0;
         }, 1000);
 
         return next;
@@ -54,8 +48,9 @@ function DesktopIcon({ title = "Title", img = "src/assets/icon/test-icon.jpg", w
                 rounded-xl 
                 cursor-pointer
                 transiton duration-150
-                hover:bg-white/15
-                active:duration-0 active:bg-white/5
+                ${isBgActive 
+                ? "bg-accent-400 border-b-[4px] border-l-[4px] border-accent-200 hover:bg-accent-300 active:bg-accent-300 active:border-t-[4px] active:border-r-[4px] active:border-b-0 active:border-l-0"
+                : "hover:bg-white/15 active:duration-0 active:bg-white/5"}
                 `}
             style={{
                 width: `${width}px`,
